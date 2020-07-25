@@ -35,6 +35,7 @@ class ShowList(object):
             #判断该对象是否为一对多，多对多字段
             if isinstance(filter_obj,ForeignKey) or isinstance(filter_obj,ManyToManyField):
                 data_list = filter_obj.remote_field.model.objects.all()  #取到关联表中的所有字段
+                print(data_list)
             else:
                 data_list = self.config.model.objects.all().values('pk',filter_field)
 
